@@ -9,8 +9,8 @@ requirements = [
 ]
 
 setup(
-    name="csvkit",
-    version="0.1.0",
+    name="csv.py",
+    version="0.1.1",
     author="Tao Xiang",
     author_email="tao.xiang@tum.de",
     description="A package of tools for csv files",
