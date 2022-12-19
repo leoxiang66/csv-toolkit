@@ -1,6 +1,11 @@
 # csv-toolkit
 A package  of tools for csv file.
 
+## Installation
+```
+pip install csv.py
+```
+
 
 ## APIs
 
