@@ -1,3 +1,4 @@
 from ._filter import (
-column_equal
+column_equal,
+filter_row
 )
