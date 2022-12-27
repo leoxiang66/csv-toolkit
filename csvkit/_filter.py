@@ -52,6 +52,14 @@ def count_nan(
     return count_row(df=df,condition=cond)
 
 
+def count_numeric(*,
+    df: pd.DataFrame,
+    column: str
+):
+    cond = lambda x : is_numeric(x[column])
+    return count_row(df=df,condition=cond)
+
+
 def drop_nan(
     *,
     df: pd.DataFrame,
@@ -61,10 +69,27 @@ def drop_nan(
     return filter_row(df=df,condition=cond)
 
 
+def drop_numeric(
+    *,
+    df: pd.DataFrame,
+    column: str,
+):
+    cond = lambda x : not is_numeric(x[column])
+    return filter_row(df=df,condition=cond)
+
+
 def drop_nan_multicol(
     *,
     df:pd.DataFrame,
     columns: List[str]
 ):
     cond = lambda x : all([not is_nan(x[col]) for col in columns])
+    return filter_row(df=df,condition=cond)
+
+def drop_numeric_multicol(
+    *,
+    df:pd.DataFrame,
+    columns: List[str]
+):
+    cond = lambda x : all([not is_numeric(x[col]) for col in columns])
     return filter_row(df=df,condition=cond)
