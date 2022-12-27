@@ -13,7 +13,8 @@ if __name__ == '__main__':
     tmp2 = csvkit.filter_row(df=a,condition=lambda x : x['name'] >2)
     print(tmp2)
     
-    df = pd.DataFrame(data = [[1,2],[3,4],[5,6],[np.nan,99], [20,None]], columns = ['a','b'])
+    df = pd.DataFrame(data = [[1,2],[3,4],['5',6],[np.nan,99], [20,None]], columns = ['a','b'])
+    print(df)
     
     print(csvkit.count_nan(df=df,column='a'))
     print(csvkit.count_nan(df=df,column='b'))

@@ -1,5 +1,6 @@
 import pandas as pd
 import math
+import numpy as np
 from typing import List
 
 def column_equal(*,
@@ -27,13 +28,27 @@ def count_row(
 ):
     return len(df[df.apply(condition,axis=1)])
 
+def is_numeric(const):
+    return str(const).isnumeric()
+
+
+def is_nan(scalar):
+    if scalar is None:
+        return True
+    try:
+        scalar = float(scalar)
+        return math.isnan(scalar)
+    except:
+        return False
+
+
 
 def count_nan(
     *,
     df: pd.DataFrame,
     column: str
 ):
-    cond = lambda x : math.isnan(x[column])
+    cond = lambda x : is_nan(x[column])
     return count_row(df=df,condition=cond)
 
 
@@ -42,7 +57,7 @@ def drop_nan(
     df: pd.DataFrame,
     column: str,
 ):
-    cond = lambda x : not math.isnan(x[column])
+    cond = lambda x : not is_nan(x[column])
     return filter_row(df=df,condition=cond)
 
 
@@ -51,5 +66,5 @@ def drop_nan_multicol(
     df:pd.DataFrame,
     columns: List[str]
 ):
-    cond = lambda x : all([not math.isnan(x[col]) for col in columns])
+    cond = lambda x : all([not is_nan(x[col]) for col in columns])
     return filter_row(df=df,condition=cond)
