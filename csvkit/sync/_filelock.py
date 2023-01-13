@@ -6,7 +6,7 @@ def sync_append(*,csv_filepath:str,values:list, delimeter: str =','):
     df = pd.read_csv(csv_filepath)
     assert len(df.columns) == len(values)
     del df
-    values = [str(i) for i in values]
+    values = [f'''"{str(i)}"''' for i in values]
     newvalue = str(delimeter.join(values)) + '\n'
 
     lock_path = f"{csv_filepath}.lock"
