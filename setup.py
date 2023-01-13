@@ -5,12 +5,12 @@ with open("README.md", "r") as readme_file:
 
 requirements = [
     "pandas",
-    'numpy',
+    'filelock==3.9.0',
 ]
 
 setup(
     name="csv.py",
-    version="0.4.1",
+    version="0.5.0",
     author="Tao Xiang",
     author_email="tao.xiang@tum.de",
     description="A package of tools for csv files",
