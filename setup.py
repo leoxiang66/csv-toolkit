@@ -10,7 +10,7 @@ requirements = [
 
 setup(
     name="csv.py",
-    version="0.5.1",
+    version="0.5.2",
     author="Tao Xiang",
     author_email="tao.xiang@tum.de",
     description="A package of tools for csv files",
